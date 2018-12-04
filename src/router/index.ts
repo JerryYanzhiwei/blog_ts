@@ -4,13 +4,20 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/page/index.vue')
+      component: () => import('../views/page/home/home.vue'),
+      children: [
+        {
+          path: '/',
+          name: 'content',
+          component: () => import('../views/page/home/component/content.vue')
+        }
+      ]
     }
   ]
 })

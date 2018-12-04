@@ -7,6 +7,11 @@ const actions: ActionTree<RootStateTypes, any> = {
   async SET_AUTHOR_ASYNC ({ commit, state: RootStateTypes }, data: any) {
     let { data: res } = await axios.get('article/get_artical', data)
     return res
+  },
+  // 获取文章列表
+  async GET_ARTICLE ({ commit, state: RootStateTypes }, data: any) {
+    let { data: res } = await axios.get('article/get_artical', data)
+    return res
   }
 }
 

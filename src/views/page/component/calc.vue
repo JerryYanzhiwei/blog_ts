@@ -35,7 +35,6 @@ export default class Calc extends Vue {
   // emit
   @Emit('onChange')
   componentChange (val: any) {
-    console.log(111)
     this.count.value = 2
   }
   // computed
@@ -53,8 +52,8 @@ export default class Calc extends Vue {
     // Vuex mutation
     this.SET_AUTHOR('Jeff')
     // Vuex action
-    let res = await this.SET_AUTHOR_ASYNC()
-    console.log('res:', res)
+    // let res = await this.SET_AUTHOR_ASYNC()
+    // console.log('res:', res)
   }
 }
 </script>
