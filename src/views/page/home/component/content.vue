@@ -15,7 +15,7 @@
               </swiper>
               <div class="swiper-pagination"  slot="pagination"></div>
             </div>
-            <div class="article_discript_contain" v-for="(item, index) in recommendData" :key="index">
+            <div class="article_discript_contain" v-show="showState.realIndex == index" v-for="(item, index) in recommendData" :key="index">
               <p class="article_title">{{item.title}}</p>
               <p class="article_content">
                 {{item.discript}}
@@ -39,7 +39,9 @@ import { Getter, Mutation, Action } from 'vuex-class'
 @Component
 export default class Content extends Vue {
   title: string = '内容'
-  realIndex: number = 0
+  showState: object = {
+    realIndex: 0
+  }
   swiperOption: object = {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -55,7 +57,8 @@ export default class Content extends Vue {
       },
       slideChange: () => {
         let realIndex: any = this.$refs.myswiper
-        this.realIndex = realIndex.swiper.realIndex
+        let showState: any = this.showState
+        showState.realIndex = realIndex.swiper.realIndex
       }
     }
   }
